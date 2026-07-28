@@ -19,6 +19,7 @@ import {
   Moon,
   Sun,
   X,
+  Radio,
 } from "lucide-react-native";
 import { useRole, ROLE_LABEL, CURRENT_USER } from "@/lib/klara/role-context";
 import { useTheme } from "@/lib/klara/theme";
@@ -39,6 +40,7 @@ type NavItem = {
 const NAV: NavItem[] = [
   { to: "/",              label: "Tableau de bord",       icon: LayoutDashboard, roles: ["supervisor","manager","admin"], section: "Opérations" },
   { to: "/vehicules",     label: "Mes véhicules",         icon: Car,             roles: ["supervisor","manager","admin"], section: "Opérations" },
+  { to: "/suivi-flotte",  label: "Suivi de flotte",       icon: Radio,           roles: ["supervisor","manager","admin"], section: "Opérations" },
   { to: "/inspections",   label: "Inspections",           icon: ClipboardList,   roles: ["supervisor","manager","admin"], section: "Opérations" },
   { to: "/anomalies",     label: "Anomalies",             icon: AlertTriangle,   roles: ["supervisor","manager","admin"], section: "Opérations", badge: 2 },
   { to: "/rapports",      label: "Rapports",              icon: BarChart3,       roles: ["manager","admin"], section: "Pilotage" },
