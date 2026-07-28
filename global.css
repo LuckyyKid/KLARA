@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 245 245 243;
+    --surface: 252 252 251;
+    --surface-2: 242 242 240;
+    --hairline: 232 232 230;
+    --ink: 23 25 29;
+    --ink-dim: 92 97 105;
+    --ink-mute: 138 142 149;
+
+    --foreground: 23 25 29;
+    --card: 255 255 255;
+    --card-foreground: 23 25 29;
+    --popover: 255 255 255;
+    --popover-foreground: 23 25 29;
+
+    --primary: 23 25 29;
+    --primary-foreground: 252 252 251;
+
+    --secondary: 240 240 238;
+    --secondary-foreground: 23 25 29;
+
+    --muted: 242 242 240;
+    --muted-foreground: 138 142 149;
+
+    --accent: 239 239 237;
+    --accent-foreground: 23 25 29;
+
+    --border: 232 232 230;
+    --input: 232 232 230;
+    --ring: 23 25 29;
+
+    --destructive: 212 87 76;
+    --destructive-foreground: 255 255 255;
+
+    --ok: 47 158 86;
+    --ok-soft: 234 244 236;
+    --warn: 224 163 58;
+    --warn-soft: 252 243 230;
+    --danger: 212 87 76;
+    --danger-soft: 251 237 236;
+    --info: 36 87 214;
+    --info-soft: 231 237 251;
+
+    --sidebar: 252 252 251;
+    --sidebar-foreground: 23 25 29;
+    --sidebar-accent: 240 240 238;
+    --sidebar-border: 232 232 230;
+  }
+
+  .dark:root,
+  .dark {
+    --background: 19 20 18;
+    --surface: 26 27 25;
+    --surface-2: 32 34 32;
+    --hairline: 44 46 43;
+    --ink: 236 236 232;
+    --ink-dim: 166 169 162;
+    --ink-mute: 122 125 119;
+
+    --foreground: 236 236 232;
+    --card: 26 27 25;
+    --card-foreground: 236 236 232;
+    --popover: 26 27 25;
+    --popover-foreground: 236 236 232;
+
+    --primary: 236 236 232;
+    --primary-foreground: 23 25 29;
+
+    --secondary: 36 38 31;
+    --secondary-foreground: 236 236 232;
+
+    --muted: 32 34 32;
+    --muted-foreground: 122 125 119;
+
+    --accent: 38 40 37;
+    --accent-foreground: 236 236 232;
+
+    --border: 44 46 43;
+    --input: 44 46 43;
+    --ring: 236 236 232;
+
+    --destructive: 229 121 109;
+    --destructive-foreground: 23 25 29;
+
+    --ok: 95 191 131;
+    --ok-soft: 27 42 32;
+    --warn: 227 180 95;
+    --warn-soft: 44 36 22;
+    --danger: 229 121 109;
+    --danger-soft: 46 26 24;
+    --info: 126 157 240;
+    --info-soft: 26 32 56;
+
+    --sidebar: 23 24 22;
+    --sidebar-foreground: 236 236 232;
+    --sidebar-accent: 36 38 31;
+    --sidebar-border: 44 46 43;
+  }
+}

@@ -1,25 +1,41 @@
 {
   "expo": {
-    "name": "KLARA-Mobile",
-    "slug": "KLARA-Mobile",
+    "name": "Klara",
+    "slug": "klara-mobile",
     "version": "1.0.0",
+    "scheme": "klara",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.klara.mobile"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#F5F5F3",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.klara.mobile"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-splash-screen",
+      "expo-font",
+      "expo-image"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
