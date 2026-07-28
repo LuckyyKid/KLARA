@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Klara",
-    "slug": "klara-mobile",
+    "slug": "klara",
     "version": "1.0.0",
     "scheme": "klara",
     "orientation": "portrait",
@@ -29,13 +29,23 @@
     },
     "plugins": [
       "expo-router",
-      "expo-status-bar",
       "expo-splash-screen",
       "expo-font",
       "expo-image"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "44ae52c8-efb7-4023-8ca0-f9f5ddb8a6ae"
+      }
+    },
+    "owner": "tdia-agencyone",
+    "runtimeVersion": "exposdk:54.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/44ae52c8-efb7-4023-8ca0-f9f5ddb8a6ae"
     }
   }
 }
