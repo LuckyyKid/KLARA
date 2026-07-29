@@ -9,17 +9,22 @@ export function Modal({
   title,
   children,
   footer,
+  size = "md",
 }: {
   open: boolean;
   onClose: () => void;
   title: string;
   children: ReactNode;
   footer?: ReactNode;
+  size?: "md" | "xl";
 }) {
   return (
     <RNModal visible={open} transparent animationType="fade" onRequestClose={onClose}>
       <Pressable onPress={onClose} className="flex-1 items-center justify-center bg-ink/40 p-4">
-        <Pressable onPress={(e) => e.stopPropagation()} className="w-full max-w-lg">
+        <Pressable
+          onPress={(e) => e.stopPropagation()}
+          className={cn("w-full", size === "xl" ? "max-w-3xl" : "max-w-lg")}
+        >
           <View className="w-full rounded-xl border border-hairline bg-background">
             <View className="flex-row items-center justify-between px-4 py-3 border-b border-hairline">
               <Text className="font-semibold tracking-tight text-ink">{title}</Text>
