@@ -1,6 +1,7 @@
 import { ScrollView, View, Text, Image } from "react-native";
 import { CheckCircle2, AlertTriangle } from "lucide-react-native";
 import { Modal, BtnGhost } from "./Modal";
+import { useRole } from "@/lib/klara/role-context";
 import {
   SECTION_LABEL,
   SECTION_ORDER,
@@ -21,6 +22,7 @@ export function InspectionRecordDetailModal({
   record: Inspection | null;
   onClose: () => void;
 }) {
+  const { role } = useRole();
   if (!record) return null;
   const defects = record.answers.filter((a) => a.status === "defect");
 
@@ -39,7 +41,9 @@ export function InspectionRecordDetailModal({
           <Info label="Quart" value={record.shift ?? "—"} />
           <Info label="Kilométrage" value={`${record.mileage.toLocaleString("fr-CA")} km`} />
           <Info label="Carburant" value={FUEL_LABEL[record.fuelLevel]} />
-          <Info label="Durée" value={formatDuration(record.durationSeconds)} />
+          {role !== "supervisor" && (
+            <Info label="Durée" value={formatDuration(record.durationSeconds)} />
+          )}
           <Info label="Conformité" value={COMPLIANCE_LABEL[record.complianceStatus]} />
         </View>
 

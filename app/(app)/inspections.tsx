@@ -13,6 +13,7 @@ import {
   type Assignment,
 } from "@/lib/klara/mock-data";
 import { useStore } from "@/lib/klara/store";
+import { useRole } from "@/lib/klara/role-context";
 import { INSPECTION_TYPE_LABEL, type Inspection } from "@/lib/klara/inspection/types";
 import { formatDuration } from "@/lib/klara/inspection/formatters";
 import { InspectionDetailModal } from "@/components/klara/InspectionDetailModal";
@@ -36,6 +37,7 @@ export default function InspectionsScreen() {
   const [selected, setSelected] = useState<Assignment | null>(null);
   const [selectedRecord, setSelectedRecord] = useState<Inspection | null>(null);
   const { inspections } = useStore();
+  const { role } = useRole();
 
   const rows = useMemo(() => {
     const base = filter === "all" ? ASSIGNMENTS : ASSIGNMENTS.filter((a) => a.status === filter);
@@ -90,9 +92,11 @@ export default function InspectionsScreen() {
                         timeStyle: "short",
                       })}
                     </Text>
-                    <Text className="text-xs font-mono text-ink-mute">
-                      {formatDuration(inspection.durationSeconds)}
-                    </Text>
+                    {role !== "supervisor" && (
+                      <Text className="text-xs font-mono text-ink-mute">
+                        {formatDuration(inspection.durationSeconds)}
+                      </Text>
+                    )}
                     <Text className="text-xs font-mono text-ink-mute">
                       {inspection.mileage.toLocaleString("fr-CA")} km
                     </Text>

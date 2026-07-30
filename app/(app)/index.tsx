@@ -1,10 +1,42 @@
-import { View, Text, ScrollView } from "react-native";
+import { useState } from "react";
+import { View, Text, ScrollView, Pressable } from "react-native";
+import { ClipboardCheck } from "lucide-react-native";
 import { Panel, PanelHeader } from "@/components/klara/Panel";
 import { StatusBadge, StateBadge } from "@/components/klara/StatusBadge";
+import { InspectionWizardModal } from "@/components/klara/inspection/InspectionWizardModal";
 import { ASSIGNMENTS, VEHICLES, ANOMALIES, NOW_LABEL } from "@/lib/klara/mock-data";
 import { useRole, CURRENT_USER, ROLE_LABEL } from "@/lib/klara/role-context";
 
 export default function Dashboard() {
+  const { role } = useRole();
+  if (role === "supervisor") return <SupervisorDashboard />;
+  return <ManagerDashboard />;
+}
+
+function SupervisorDashboard() {
+  const { role } = useRole();
+  const user = CURRENT_USER[role];
+  const [wizardOpen, setWizardOpen] = useState(false);
+
+  return (
+    <View className="flex-1 items-center justify-center bg-background p-6">
+      <Text className="text-sm text-ink-mute mb-1">Bonjour, {user.name.split(" ")[0]}</Text>
+      <Text className="text-xl font-semibold tracking-tight text-ink mb-8">
+        Prêt à commencer votre inspection?
+      </Text>
+      <Pressable
+        onPress={() => setWizardOpen(true)}
+        className="flex-row items-center gap-2.5 h-14 px-8 rounded-lg bg-ink active:opacity-90"
+      >
+        <ClipboardCheck size={18} color="rgb(250,250,247)" />
+        <Text className="text-primary-foreground text-base font-medium">Commencer une inspection</Text>
+      </Pressable>
+      <InspectionWizardModal open={wizardOpen} onClose={() => setWizardOpen(false)} />
+    </View>
+  );
+}
+
+function ManagerDashboard() {
   const { role } = useRole();
   const user = CURRENT_USER[role];
   const eveningAssignments = ASSIGNMENTS.filter((a) => a.shift === "evening");

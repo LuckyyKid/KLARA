@@ -30,8 +30,7 @@
     "plugins": [
       "expo-router",
       "expo-splash-screen",
-      "expo-font",
-      "expo-image"
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
